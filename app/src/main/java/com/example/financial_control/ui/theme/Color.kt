@@ -1,0 +1,33 @@
+package com.example.financial_control.ui.theme
+
+import androidx.compose.ui.graphics.Color
+
+val BackgroundLight = Color(0xFFF7F7F7)
+val OnBackgroundLight = Color(0xFF0A0F36)
+val OnBackgroundBodyLight = Color(0xFF323232)
+val OnBackgroundWeakLight = Color(0xFF585858)
+val BrandLight = Color(0xFF3B70A2)
+val OnBrandLight = Color(0xFFFFFFFF)
+val SurfaceLight = Color(0xFFFFFFFF)
+val OnSurfaceLight = Color(0xFF0A0F36)
+val SuccessLight = Color(0xFF09AC0E)
+val OnSuccessLight = Color(0xFFE2E2E2)
+val WarningLight = Color(0xFFFFE51D)
+val OnWarningLight = Color(0xFF000000)
+val ErrorLight = Color(0xFFC61717)
+val OnErrorLight = Color(0xFFE2E2E2)
+
+val BackgroundDark = Color(0xFF0A0F36)
+val OnBackgroundDark = Color(0xFFFFFFFF)
+val OnBackgroundBodyDark = Color(0xFFDCDCDC)
+val OnBackgroundWeakDark = Color(0xFFA7A7A7)
+val BrandDark = Color(0xFF3B70A2)
+val OnBrandDark = Color(0xFFFFFFFF)
+val SurfaceDark = Color(0xFF0F164A)
+val OnSurfaceDark = Color(0xFFFFFFFF)
+val SuccessDark = Color(0xFF09AC0E)
+val OnSuccessDark = Color(0xFFE2E2E2)
+val WarningDark = Color(0xFFFFE51D)
+val OnWarningDark = Color(0xFF000000)
+val ErrorDark = Color(0xFFC61717)
+val OnErrorDark = Color(0xFFE2E2E2)
