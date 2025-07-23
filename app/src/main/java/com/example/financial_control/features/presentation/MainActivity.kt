@@ -1,6 +1,5 @@
 package com.example.financial_control.features.presentation
 
-import android.content.res.Resources.Theme
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -22,7 +21,7 @@ class MainActivity : ComponentActivity() {
             FinancialControlTheme {
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
-                    containerColor = MaterialTheme.colorScheme.background
+                    containerColor = MaterialTheme.colorScheme.background,
                 ) { innerPadding ->
                     Greeting(
                         name = "Android",
@@ -39,6 +38,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
         text = "Hello $name!",
         color = MaterialTheme.colorScheme.onBackground,
+        style = MaterialTheme.typography.headlineSmall,
         modifier = modifier
     )
 }
