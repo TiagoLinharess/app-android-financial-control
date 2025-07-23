@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "539364929696",
+    "project_id": "financial-control-97cee",
+    "storage_bucket": "financial-control-97cee.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:539364929696:android:05fff4839b7029e08b59c5",
+        "android_client_info": {
+          "package_name": "com.example.financial_control"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "539364929696-csjnh8cbuv639gu2f637kf1cl1bf55kt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2eZGCIvJIfzaKUEWTge2a_fNRxqPtWh0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "539364929696-csjnh8cbuv639gu2f637kf1cl1bf55kt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "539364929696-m41826mj0snpb039u65e41md3f32uo1n.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.tiagoLinhares.FinancialControl"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
