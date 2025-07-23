@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -16,7 +15,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 import com.example.financial_control.R
 import com.example.financial_control.design_system.components.SHPrimaryButton
 import com.example.financial_control.ui.theme.DefaultDimensions
@@ -48,7 +46,6 @@ fun LoginScreen(viewModel: LoginContract = LoginViewModel()) {
                 color = MaterialTheme.colorScheme.onBackground,
                 modifier = Modifier
                     .padding(innerPadding)
-                    .wrapContentSize()
             )
             Text(
                 text = stringResource(R.string.login_description),
@@ -56,7 +53,6 @@ fun LoginScreen(viewModel: LoginContract = LoginViewModel()) {
                 color = MaterialTheme.colorScheme.onBackground,
                 modifier = Modifier
                     .padding(innerPadding)
-                    .wrapContentSize()
             )
             Spacer(modifier = Modifier.weight(1f))
             SHPrimaryButton(
