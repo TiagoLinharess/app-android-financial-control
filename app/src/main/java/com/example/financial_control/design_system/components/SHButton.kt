@@ -18,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
+import com.example.financial_control.ui.theme.DefaultDimensions
 
 @Composable
 fun SHPrimaryButton(
@@ -35,7 +36,7 @@ fun SHPrimaryButton(
             if (isLoading) return@Button
             onClick()
         },
-        shape = RoundedCornerShape(16.dp),
+        shape = RoundedCornerShape(DefaultDimensions.small),
         colors = ButtonDefaults.buttonColors(
             containerColor = color,
             contentColor = onColor,
@@ -45,25 +46,25 @@ fun SHPrimaryButton(
         enabled = !isDisabled,
         modifier = Modifier
             .fillMaxWidth()
-            .height(52.dp)
+            .height(DefaultDimensions.xxLarge)
     ) {
         Row(
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            horizontalArrangement = Arrangement.spacedBy(DefaultDimensions.smaller),
             verticalAlignment = Alignment.CenterVertically
         ) {
             if (isLoading) {
                 CircularProgressIndicator(
                     modifier = Modifier
-                        .size(24.dp),
+                        .size(DefaultDimensions.big),
                     color = onColor,
-                    strokeWidth = 2.dp
+                    strokeWidth = DefaultDimensions.two
                 )
             } else {
                 if (iconPainter != null) {
                     Image(
                         painter = painterResource(iconPainter),
                         contentDescription = null,
-                        modifier = Modifier.size(24.dp)
+                        modifier = Modifier.size(DefaultDimensions.big)
                     )
                 }
                 Text(

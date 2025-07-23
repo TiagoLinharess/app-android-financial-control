@@ -15,9 +15,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.financial_control.R
 import com.example.financial_control.design_system.components.SHPrimaryButton
+import com.example.financial_control.ui.theme.DefaultDimensions
 
 @Composable
 fun LoginScreen(viewModel: LoginContract = LoginViewModel()) {
@@ -29,19 +31,19 @@ fun LoginScreen(viewModel: LoginContract = LoginViewModel()) {
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
-                .padding(top = 80.dp)
-                .padding(horizontal = 16.dp)
-                .padding(bottom = 16.dp),
+                .padding(top = DefaultDimensions.superGiant)
+                .padding(horizontal = DefaultDimensions.small)
+                .padding(bottom = DefaultDimensions.small),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(16.dp)
+            verticalArrangement = Arrangement.spacedBy(DefaultDimensions.nano)
         ) {
             Image(
                 painter = painterResource(id = R.drawable.logo),
                 contentDescription = null,
-                modifier = Modifier.size(74.dp),
+                modifier = Modifier.size(DefaultDimensions.xxGiant),
             )
             Text(
-                text = "Financial Control",
+                text = stringResource(R.string.app_name),
                 style = MaterialTheme.typography.titleLarge,
                 color = MaterialTheme.colorScheme.onBackground,
                 modifier = Modifier
@@ -49,7 +51,7 @@ fun LoginScreen(viewModel: LoginContract = LoginViewModel()) {
                     .wrapContentSize()
             )
             Text(
-                text = "Bem-vindo ao  Financial Control!\nGerencie suas despesas de forma simples e segura.",
+                text = stringResource(R.string.login_description),
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onBackground,
                 modifier = Modifier
@@ -58,7 +60,7 @@ fun LoginScreen(viewModel: LoginContract = LoginViewModel()) {
             )
             Spacer(modifier = Modifier.weight(1f))
             SHPrimaryButton(
-                title = "entrar com a sua conta Google",
+                title = stringResource(R.string.login_button),
                 iconPainter = R.drawable.google_logo,
                 color = MaterialTheme.colorScheme.primary,
                 onColor = MaterialTheme.colorScheme.onPrimary,

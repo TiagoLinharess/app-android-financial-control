@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">financial-control</string>
+    <string name="app_name" translatable="false">Financial Control</string>
+
+    // Login
+
+    <string name="login_description" translatable="true">Welcome to Financial Control!\nManage your expenses simply\nand securely</string>
+    <string name="login_button" translatable="true">sign in with your Google account</string>
 </resources>
