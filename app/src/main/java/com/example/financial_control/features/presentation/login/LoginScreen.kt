@@ -11,16 +11,21 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.financial_control.R
 import com.example.financial_control.design_system.components.SHPrimaryButton
 import com.example.financial_control.ui.theme.DefaultDimensions
 
 @Composable
-fun LoginScreen(viewModel: LoginContract = LoginViewModel()) {
+fun LoginScreen() {
+    val viewModel: AuthViewModel = hiltViewModel()
+    val isLoading by viewModel.isLoading.collectAsStateWithLifecycle()
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         containerColor = MaterialTheme.colorScheme.background,
@@ -61,8 +66,8 @@ fun LoginScreen(viewModel: LoginContract = LoginViewModel()) {
                 color = MaterialTheme.colorScheme.primary,
                 onColor = MaterialTheme.colorScheme.onPrimary,
                 font = MaterialTheme.typography.bodyMedium,
-                isLoading = false,
-                onClick = { viewModel.onLoginClicked() }
+                isLoading = isLoading,
+                onClick = { viewModel.signIn() }
             )
         }
     }
