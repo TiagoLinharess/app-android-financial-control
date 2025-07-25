@@ -109,7 +109,7 @@ fun SHoast(
                     Image(
                         painter = painterResource(id = style.image()),
                         contentDescription = null,
-                        modifier = Modifier.size(DefaultDimensions.medium),
+                        modifier = Modifier.size(DefaultDimensions.big),
                         colorFilter = androidx.compose.ui.graphics.ColorFilter.tint(style.textColor())
                     )
                     Text(

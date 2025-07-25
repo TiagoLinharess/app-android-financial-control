@@ -63,7 +63,7 @@ fun SHPrimaryButton(
                     Image(
                         painter = painterResource(iconPainter),
                         contentDescription = null,
-                        modifier = Modifier.size(DefaultDimensions.big)
+                        modifier = Modifier.size(DefaultDimensions.xBig)
                     )
                 }
                 Text(
