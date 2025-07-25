@@ -2,9 +2,10 @@ package com.example.financial_control.features.presentation.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.financial_control.domain.models.UserModel
 import com.example.financial_control.domain.repository.AuthRepository
-import com.google.firebase.auth.FirebaseUser
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
@@ -16,9 +17,13 @@ class AuthViewModel @Inject constructor(
     private val authRepository: AuthRepository
 ) : ViewModel() {
 
-    val currentUser: StateFlow<FirebaseUser?> = authRepository.currentUser
-    val isLoading: StateFlow<Boolean> = authRepository.isLoading
-    val authError: StateFlow<String?> = authRepository.authError
+    val currentUser: StateFlow<UserModel?> = authRepository.currentUser
+
+    private val _isLoading = MutableStateFlow(false)
+    val isLoading: StateFlow<Boolean> = _isLoading
+
+    private val _authError = MutableStateFlow<String?>(null)
+    val authError: StateFlow<String?> = _authError
 
     val showLogin: StateFlow<Boolean> = combine(currentUser, isLoading) { user, loading ->
         user == null
@@ -30,11 +35,23 @@ class AuthViewModel @Inject constructor(
 
     fun signIn() {
         viewModelScope.launch {
-            authRepository.signIn()
+            try {
+                _isLoading.value = true
+                _authError.value = null
+                authRepository.signIn()
+            } catch (e: Exception) {
+                _authError.value = e.message ?: "Firebase Google sign-in failed"
+            } finally {
+                _isLoading.value = false
+            }
         }
     }
 
-    suspend fun signOut() {
-        authRepository.signOut()
+    fun signOut() {
+        viewModelScope.launch {
+            _isLoading.value = true
+            authRepository.signOut()
+            _isLoading.value = false
+        }
     }
 }

@@ -20,12 +20,16 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.financial_control.R
 import com.example.financial_control.design_system.components.SHPrimaryButton
+import com.example.financial_control.design_system.components.SHToastStyle
+import com.example.financial_control.design_system.components.SHoast
 import com.example.financial_control.ui.theme.DefaultDimensions
 
 @Composable
 fun LoginScreen() {
     val viewModel: AuthViewModel = hiltViewModel()
     val isLoading by viewModel.isLoading.collectAsStateWithLifecycle()
+    val error by viewModel.authError.collectAsStateWithLifecycle()
+
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         containerColor = MaterialTheme.colorScheme.background,
@@ -68,6 +72,13 @@ fun LoginScreen() {
                 font = MaterialTheme.typography.bodyMedium,
                 isLoading = isLoading,
                 onClick = { viewModel.signIn() }
+            )
+        }
+        if (error != null) {
+            SHoast(
+                style = SHToastStyle.ERROR,
+                font = MaterialTheme.typography.bodyMedium,
+                message = error!!
             )
         }
     }

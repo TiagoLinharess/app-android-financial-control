@@ -18,7 +18,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.financial_control.features.presentation.login.AuthViewModel
 import com.example.financial_control.features.presentation.login.LoginScreen
-import kotlinx.coroutines.launch
 
 enum class AppScreen {
     LOGIN,
@@ -52,11 +51,7 @@ fun AppNavHost(
             ) { innerPadding ->
                 OutlinedButton(
                     modifier = Modifier.padding(innerPadding),
-                    onClick = {
-                        scope.launch {
-                            viewModel.signOut()
-                        }
-                    }) {
+                    onClick = { viewModel.signOut() }) {
                     Text(text = "Sign out")
                 }
             }
