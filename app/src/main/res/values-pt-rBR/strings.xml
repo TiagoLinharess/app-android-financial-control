@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">Financial Control</string>
+
+    // Login
+
+    <string name="login_description" translatable="true">Bem-vindo(a) ao Financial Control!\nGerencie suas despesas de forma simples\ne segura.</string>
+    <string name="login_button" translatable="true">entrar com a sua conta Google</string>
+</resources>
