@@ -25,7 +25,7 @@ class AuthViewModel @Inject constructor(
     private val _authError = MutableStateFlow<String?>(null)
     val authError: StateFlow<String?> = _authError
 
-    val showLogin: StateFlow<Boolean> = combine(currentUser, isLoading) { user, loading ->
+    val showLogin: StateFlow<Boolean> = combine(currentUser, isLoading) { user, _ ->
         user == null
     }.stateIn(
         viewModelScope,
