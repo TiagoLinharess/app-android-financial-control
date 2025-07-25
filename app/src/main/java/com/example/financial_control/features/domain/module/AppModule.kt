@@ -1,7 +1,6 @@
 package com.example.financial_control.features.domain.module
 
 import android.content.Context
-import androidx.credentials.CredentialManager
 import com.example.financial_control.features.domain.client.GoogleAuthClient
 import com.google.firebase.auth.FirebaseAuth
 import dagger.Module
@@ -19,12 +18,6 @@ object AppModule {
     @Singleton
     fun provideFirebaseAuth(): FirebaseAuth {
         return FirebaseAuth.getInstance()
-    }
-
-    @Provides
-    @Singleton
-    fun provideCredentialManager(@ApplicationContext context: Context): CredentialManager {
-        return CredentialManager.create(context)
     }
 
     @Provides

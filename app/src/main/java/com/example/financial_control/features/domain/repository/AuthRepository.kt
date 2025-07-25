@@ -1,10 +1,8 @@
 package com.example.financial_control.features.domain.repository
 
-import android.util.Log
 import com.example.financial_control.features.domain.client.GoogleAuthClient
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.tasks.await
@@ -16,7 +14,7 @@ class AuthRepository @Inject constructor(
     private val firebaseAuth: FirebaseAuth,
     private val googleAuthClient: GoogleAuthClient
 ) {
-    private val _currentUser = MutableStateFlow<FirebaseUser?>(firebaseAuth.currentUser)
+    private val _currentUser = MutableStateFlow(firebaseAuth.currentUser)
     val currentUser: StateFlow<FirebaseUser?> = _currentUser
 
     private val _isLoading = MutableStateFlow(false)
@@ -40,9 +38,7 @@ class AuthRepository @Inject constructor(
         try {
             val credential = googleAuthClient.getCredentialResponse()
             firebaseAuth.signInWithCredential(credential).await()
-            Log.i("AuthRepository", "Firebase sign-in with Google token successful.")
         } catch (e: Exception) {
-            Log.e("AuthRepository", "Firebase Google sign-in error", e)
             _authError.value = e.message ?: "Firebase Google sign-in failed"
         } finally {
             _isLoading.value = false
@@ -54,6 +50,5 @@ class AuthRepository @Inject constructor(
         googleAuthClient.clearCredentialState()
         firebaseAuth.signOut()
         _isLoading.value = false
-        Log.i("AuthRepository", "User signed out.")
     }
 }

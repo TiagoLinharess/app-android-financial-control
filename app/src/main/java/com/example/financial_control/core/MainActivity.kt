@@ -1,6 +1,5 @@
-package com.example.financial_control.features.presentation
+package com.example.financial_control.core
 
-import android.app.Application
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -20,15 +19,7 @@ import com.example.financial_control.features.presentation.login.AuthViewModel
 import com.example.financial_control.features.presentation.login.LoginScreen
 import com.example.financial_control.ui.theme.FinancialControlTheme
 import dagger.hilt.android.AndroidEntryPoint
-import dagger.hilt.android.HiltAndroidApp
 import kotlinx.coroutines.launch
-
-@HiltAndroidApp
-class MyFinancialApp : Application() {
-    override fun onCreate() {
-        super.onCreate()
-    }
-}
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
