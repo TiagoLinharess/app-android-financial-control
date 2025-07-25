@@ -1,4 +1,4 @@
-package com.example.financial_control.features.domain.client
+package com.example.financial_control.domain.client
 
 import android.content.Context
 import android.util.Log

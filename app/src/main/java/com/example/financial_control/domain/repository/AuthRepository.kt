@@ -1,6 +1,6 @@
-package com.example.financial_control.features.domain.repository
+package com.example.financial_control.domain.repository
 
-import com.example.financial_control.features.domain.client.GoogleAuthClient
+import com.example.financial_control.domain.client.GoogleAuthClient
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.coroutines.flow.MutableStateFlow

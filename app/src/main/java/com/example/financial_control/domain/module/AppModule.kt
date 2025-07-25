@@ -1,7 +1,7 @@
-package com.example.financial_control.features.domain.module
+package com.example.financial_control.domain.module
 
 import android.content.Context
-import com.example.financial_control.features.domain.client.GoogleAuthClient
+import com.example.financial_control.domain.client.GoogleAuthClient
 import com.google.firebase.auth.FirebaseAuth
 import dagger.Module
 import dagger.Provides

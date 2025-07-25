@@ -2,7 +2,7 @@ package com.example.financial_control.features.presentation.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.financial_control.features.domain.repository.AuthRepository
+import com.example.financial_control.domain.repository.AuthRepository
 import com.google.firebase.auth.FirebaseUser
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.StateFlow
