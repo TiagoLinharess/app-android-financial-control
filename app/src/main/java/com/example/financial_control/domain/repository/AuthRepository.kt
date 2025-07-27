@@ -9,14 +9,20 @@ import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 import javax.inject.Singleton
 
+interface AuthRepositoryInterface {
+    val currentUser: StateFlow<UserModel?>
+    suspend fun signIn()
+    suspend fun signOut()
+}
+
 @Singleton
 class AuthRepository @Inject constructor(
     private val firebaseAuth: FirebaseAuth,
     private val googleAuthClient: GoogleAuthClient
-) {
+) : AuthRepositoryInterface {
 
     private val _currentUser = MutableStateFlow<UserModel?>(null)
-    val currentUser: StateFlow<UserModel?> = _currentUser
+    override val currentUser: StateFlow<UserModel?> = _currentUser
 
     init {
         firebaseAuth.addAuthStateListener { auth ->
@@ -34,12 +40,12 @@ class AuthRepository @Inject constructor(
         }
     }
 
-    suspend fun signIn() {
+    override suspend fun signIn() {
         val credential = googleAuthClient.getCredentialResponse()
         firebaseAuth.signInWithCredential(credential).await()
     }
 
-    suspend fun signOut() {
+    override suspend fun signOut() {
         googleAuthClient.clearCredentialState()
         firebaseAuth.signOut()
     }

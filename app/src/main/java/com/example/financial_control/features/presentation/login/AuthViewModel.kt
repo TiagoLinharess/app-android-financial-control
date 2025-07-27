@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.financial_control.domain.error.FCError
 import com.example.financial_control.domain.models.UserModel
-import com.example.financial_control.domain.repository.AuthRepository
+import com.example.financial_control.domain.repository.AuthRepositoryInterface
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AuthViewModel @Inject constructor(
-    private val authRepository: AuthRepository
+    private val authRepository: AuthRepositoryInterface
 ) : ViewModel() {
 
     val currentUser: StateFlow<UserModel?> = authRepository.currentUser
