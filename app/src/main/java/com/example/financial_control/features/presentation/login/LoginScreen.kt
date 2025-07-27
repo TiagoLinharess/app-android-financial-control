@@ -74,11 +74,11 @@ fun LoginScreen() {
                 onClick = { viewModel.signIn() }
             )
         }
-        if (error != null) {
+        error?.let {
             SHoast(
                 style = SHToastStyle.ERROR,
                 font = MaterialTheme.typography.bodyMedium,
-                message = error!!
+                message = stringResource(it)
             )
         }
     }

@@ -3,7 +3,6 @@ package com.example.financial_control.domain.repository
 import com.example.financial_control.domain.client.GoogleAuthClient
 import com.example.financial_control.domain.models.UserModel
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.tasks.await

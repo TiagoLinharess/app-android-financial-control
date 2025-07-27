@@ -2,6 +2,14 @@
 <resources>
     <string name="app_name" translatable="false">Financial Control</string>
 
+    // Error
+
+    <string name="error_user_permission" translatable="false">Permissão de acesso ao Google não foi concedida</string>
+    <string name="error_user_canceled_login" translatable="false">O login foi cancelado pelo usuário</string>
+    <string name="error_generic" translatable="false">Ocorreu um erro inesperado</string>
+    <string name="error_session_expired" translatable="false">Sua sessão expirou. Por favor, logue-se novamente</string>
+    <string name="error_parse_error" translatable="false">Ocorreu um erro ao processar os dados. Por favor, tente novamente mais tarde</string>
+
     // Login
 
     <string name="login_description" translatable="true">Bem-vindo(a) ao Financial Control!\nGerencie suas despesas de forma simples\ne segura.</string>

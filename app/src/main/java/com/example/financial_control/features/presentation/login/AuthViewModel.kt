@@ -2,6 +2,7 @@ package com.example.financial_control.features.presentation.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.financial_control.domain.error.FCError
 import com.example.financial_control.domain.models.UserModel
 import com.example.financial_control.domain.repository.AuthRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -22,8 +23,8 @@ class AuthViewModel @Inject constructor(
     private val _isLoading = MutableStateFlow(false)
     val isLoading: StateFlow<Boolean> = _isLoading
 
-    private val _authError = MutableStateFlow<String?>(null)
-    val authError: StateFlow<String?> = _authError
+    private val _authError = MutableStateFlow<Int?>(null)
+    val authError: StateFlow<Int?> = _authError
 
     val showLogin: StateFlow<Boolean> = combine(currentUser, isLoading) { user, _ ->
         user == null
@@ -40,7 +41,8 @@ class AuthViewModel @Inject constructor(
                 _authError.value = null
                 authRepository.signIn()
             } catch (e: Exception) {
-                _authError.value = e.message ?: "Firebase Google sign-in failed"
+                val error = FCError.fromApiString(e.message)
+                _authError.value = error.getMessageId()
             } finally {
                 _isLoading.value = false
             }

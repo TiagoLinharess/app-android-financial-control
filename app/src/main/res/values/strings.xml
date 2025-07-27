@@ -1,6 +1,14 @@
 <resources>
     <string name="app_name" translatable="false">Financial Control</string>
 
+    // Error
+
+    <string name="error_user_permission" translatable="false">Google access permission not granted</string>
+    <string name="error_user_canceled_login" translatable="false">The user canceled the sign-in flow</string>
+    <string name="error_generic" translatable="false">An unexpected error has occurred</string>
+    <string name="error_session_expired" translatable="false">Your session has expired. Please log in again</string>
+    <string name="error_parse_error" translatable="false">An error occurred while processing the data. Please try again later</string>
+
     // Login
 
     <string name="login_description" translatable="true">Welcome to Financial Control!\nManage your expenses simply\nand securely.</string>
