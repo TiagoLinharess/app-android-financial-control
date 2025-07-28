@@ -2,7 +2,7 @@ package com.example.financial_control.router
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.financial_control.domain.models.UserModel
+import com.example.financial_control.domain.models.user.UserModel
 import com.example.financial_control.domain.repository.AuthRepositoryInterface
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

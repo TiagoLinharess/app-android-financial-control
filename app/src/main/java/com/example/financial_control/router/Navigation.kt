@@ -1,30 +1,27 @@
 package com.example.financial_control.router
 
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.financial_control.features.presentation.categories.CategoryListScreen
+import com.example.financial_control.features.presentation.home.HomeScreen
 import com.example.financial_control.features.presentation.login.LoginScreen
 
 enum class AppScreen {
     LOGIN,
-    HOME
+    HOME,
+    CATEGORIES
 }
 
 sealed class NavigationItem(val route: String) {
     data object Home: NavigationItem(AppScreen.HOME.name)
     data object Login: NavigationItem(AppScreen.LOGIN.name)
+    data object Categories: NavigationItem(AppScreen.CATEGORIES.name)
 }
 
 @Composable
@@ -42,16 +39,10 @@ fun AppNavHost(
             LoginScreen()
         }
         composable(NavigationItem.Home.route) {
-            Scaffold(
-                modifier = Modifier.fillMaxSize(),
-                containerColor = MaterialTheme.colorScheme.background,
-            ) { innerPadding ->
-                OutlinedButton(
-                    modifier = Modifier.padding(innerPadding),
-                    onClick = { }) {
-                    Text(text = "Sign out")
-                }
-            }
+            HomeScreen(navController = navController)
+        }
+        composable(NavigationItem.Categories.route) {
+            CategoryListScreen(navController = navController)
         }
     }
 

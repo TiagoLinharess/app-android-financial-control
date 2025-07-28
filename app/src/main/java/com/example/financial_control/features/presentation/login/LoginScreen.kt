@@ -17,7 +17,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextAlign
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.financial_control.R
@@ -65,7 +64,6 @@ fun LoginScreen() {
                 color = MaterialTheme.colorScheme.onBackground,
                 modifier = Modifier
                     .padding(innerPadding)
-//                textAlign = TextAlign.Center
             )
             Spacer(modifier = Modifier.weight(1f))
             SHPrimaryButton(

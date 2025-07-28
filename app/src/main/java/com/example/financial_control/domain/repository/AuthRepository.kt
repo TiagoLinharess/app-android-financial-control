@@ -2,7 +2,7 @@ package com.example.financial_control.domain.repository
 
 import android.content.Context
 import com.example.financial_control.domain.client.GoogleAuthClient
-import com.example.financial_control.domain.models.UserModel
+import com.example.financial_control.domain.models.user.UserModel
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

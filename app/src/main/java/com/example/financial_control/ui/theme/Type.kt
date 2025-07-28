@@ -84,10 +84,18 @@ val Typography = Typography(
 
     ),
 
+    displaySmall = TextStyle(
+        fontFamily = Poppins,
+        fontWeight = FontWeight.Normal,
+        fontSize = 16.sp,
+        lineHeight = 24.sp,
+        letterSpacing = 0.5.sp
+    ),
+
     headlineSmall = TextStyle(
         fontFamily = Poppins,
         fontWeight = FontWeight.Normal,
-        fontSize = 24.sp,
+        fontSize = 20.sp,
         lineHeight = 24.sp,
         letterSpacing = 0.5.sp
     )

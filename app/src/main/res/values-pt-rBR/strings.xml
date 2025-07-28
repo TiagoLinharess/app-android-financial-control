@@ -10,8 +10,36 @@
     <string name="error_session_expired" translatable="false">Sua sessão expirou. Por favor, logue-se novamente</string>
     <string name="error_parse_error" translatable="false">Ocorreu um erro ao processar os dados. Por favor, tente novamente mais tarde</string>
 
+    // Commons
+
+    <string name="commons_sign_out" translatable="false">Sair</string>
+    <string name="commons_go_back" translatable="false">Voltar</string>
+    <string name="commons_delete" translatable="false">Deletar</string>
+    <string name="commons_new" translatable="false">Novo</string>
+    <string name="commons_update" translatable="false">Editar</string>
+    <string name="commons_create" translatable="false">Criar</string>
+    <string name="commons_try_again" translatable="false">Carregar novamente</string>
+    <string name="commons_menu" translatable="false">Menu</string>
+    <string name="commons_name" translatable="false">Nome</string>
+    <string name="commons_transaction_type" translatable="false">Tipo de pagamento</string>
+    <string name="commons_name_empty" translatable="false">Preencha o campo "nome"</string>
+    <string name="commons_icon" translatable="false">Ícone</string>
+    <string name="commons_select_icon" translatable="false">Selecione o ícone</string>
+    <string name="commons_select_background_color" translatable="false">Selecione a cor de fundo</string>
+    <string name="commons_select_text_color" translatable="false">Selecione a cor do texto</string>
+    <string name="commons_created_at" translatable="false">Data de criação: %@</string>
+
     // Login
 
     <string name="login_description" translatable="true">Bem-vindo(a) ao Financial Control!\nGerencie suas despesas de forma simples e segura.</string>
     <string name="login_button" translatable="true">entrar com a sua conta Google</string>
+
+    // Modules
+
+    <string name="module_home" translatable="true">Início</string>
+    <string name="module_budgets" translatable="true">Orçamentos</string>
+    <string name="module_bills" translatable="true">Contas</string>
+    <string name="module_settings" translatable="true">Configurações</string>
+    <string name="module_categories" translatable="true">Categorias</string>
+    <string name="module_tags" translatable="true">Tags</string>
 </resources>

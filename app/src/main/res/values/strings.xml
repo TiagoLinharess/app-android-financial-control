@@ -9,8 +9,36 @@
     <string name="error_session_expired" translatable="false">Your session has expired. Please log in again</string>
     <string name="error_parse_error" translatable="false">An error occurred while processing the data. Please try again later</string>
 
+    // Commons
+
+    <string name="commons_sign_out" translatable="false">Sign out</string>
+    <string name="commons_go_back" translatable="false">go back</string>
+    <string name="commons_delete" translatable="false">delete</string>
+    <string name="commons_new" translatable="false">new</string>
+    <string name="commons_update" translatable="false">update</string>
+    <string name="commons_create" translatable="false">create</string>
+    <string name="commons_try_again" translatable="false">try again</string>
+    <string name="commons_menu" translatable="false">Menu</string>
+    <string name="commons_name" translatable="false">Name</string>
+    <string name="commons_transaction_type" translatable="false">Transaction type</string>
+    <string name="commons_name_empty" translatable="false">Fill the field "name"</string>
+    <string name="commons_icon" translatable="false">Icon</string>
+    <string name="commons_select_icon" translatable="false">Select icon</string>
+    <string name="commons_select_background_color" translatable="false">Select background color</string>
+    <string name="commons_select_text_color" translatable="false">Select text color</string>
+    <string name="commons_created_at" translatable="false">Created at: %@</string>
+
     // Login
 
     <string name="login_description" translatable="true">Welcome to Financial Control!\nManage your expenses simply and securely.</string>
     <string name="login_button" translatable="true">sign in with your Google account</string>
+
+    // Modules
+
+    <string name="module_home" translatable="true">Home</string>
+    <string name="module_budgets" translatable="true">Budgets</string>
+    <string name="module_bills" translatable="true">Bills</string>
+    <string name="module_settings" translatable="true">Settings</string>
+    <string name="module_categories" translatable="true">Categories</string>
+    <string name="module_tags" translatable="true">Tags</string>
 </resources>
