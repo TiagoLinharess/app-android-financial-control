@@ -15,25 +15,14 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class AuthViewModel @Inject constructor(
+class LoginViewModel @Inject constructor(
     private val authRepository: AuthRepositoryInterface
 ) : ViewModel() {
-
-    val currentUser: StateFlow<UserModel?> = authRepository.currentUser
-
     private val _isLoading = MutableStateFlow(false)
     val isLoading: StateFlow<Boolean> = _isLoading
 
     private val _authError = MutableStateFlow<Int?>(null)
     val authError: StateFlow<Int?> = _authError
-
-    val showLogin: StateFlow<Boolean> = combine(currentUser, isLoading) { user, _ ->
-        user == null
-    }.stateIn(
-        viewModelScope,
-        kotlinx.coroutines.flow.SharingStarted.WhileSubscribed(5000),
-        true
-    )
 
     fun signIn(context: Context) {
         viewModelScope.launch {
@@ -47,14 +36,6 @@ class AuthViewModel @Inject constructor(
             } finally {
                 _isLoading.value = false
             }
-        }
-    }
-
-    fun signOut() {
-        viewModelScope.launch {
-            _isLoading.value = true
-            authRepository.signOut()
-            _isLoading.value = false
         }
     }
 }

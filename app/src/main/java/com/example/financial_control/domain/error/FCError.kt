@@ -24,7 +24,7 @@ enum class FCError {
     companion object {
         fun fromApiString(apiErrorString: String?): FCError {
             return when (apiErrorString?.lowercase()) {
-                "user cancelled the selector" -> USER_CANCELED_LOGIN
+                "user cancelled the selector", "activity is cancelled by the user." -> USER_CANCELED_LOGIN
                 else -> GENERIC
             }
         }

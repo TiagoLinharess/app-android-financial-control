@@ -15,7 +15,6 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.financial_control.features.presentation.login.AuthViewModel
 import com.example.financial_control.features.presentation.login.LoginScreen
 
 enum class AppScreen {
@@ -32,7 +31,7 @@ sealed class NavigationItem(val route: String) {
 fun AppNavHost(
     navController: NavHostController
 ) {
-    val viewModel: AuthViewModel = hiltViewModel()
+    val viewModel: NavigationViewModel = hiltViewModel()
     val showLogin by viewModel.showLogin.collectAsStateWithLifecycle()
 
     NavHost(
@@ -49,7 +48,7 @@ fun AppNavHost(
             ) { innerPadding ->
                 OutlinedButton(
                     modifier = Modifier.padding(innerPadding),
-                    onClick = { viewModel.signOut() }) {
+                    onClick = { }) {
                     Text(text = "Sign out")
                 }
             }

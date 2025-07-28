@@ -12,6 +12,6 @@
 
     // Login
 
-    <string name="login_description" translatable="true">Bem-vindo(a) ao Financial Control!\nGerencie suas despesas de forma simples\ne segura.</string>
+    <string name="login_description" translatable="true">Bem-vindo(a) ao Financial Control!\nGerencie suas despesas de forma simples e segura.</string>
     <string name="login_button" translatable="true">entrar com a sua conta Google</string>
 </resources>

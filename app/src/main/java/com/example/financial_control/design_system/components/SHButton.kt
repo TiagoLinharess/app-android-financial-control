@@ -48,7 +48,7 @@ fun SHPrimaryButton(
             .height(DefaultDimensions.xxLarge)
     ) {
         Row(
-            horizontalArrangement = Arrangement.spacedBy(DefaultDimensions.smaller),
+            horizontalArrangement = Arrangement.spacedBy(DefaultDimensions.extraSmall),
             verticalAlignment = Alignment.CenterVertically
         ) {
             if (isLoading) {
