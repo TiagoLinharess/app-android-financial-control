@@ -25,10 +25,8 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideGoogleAuthClient(
-        @ApplicationContext context: Context
-    ): GoogleAuthClient {
-        return GoogleAuthClient(context)
+    fun provideGoogleAuthClient(): GoogleAuthClient {
+        return GoogleAuthClient()
     }
 }
 

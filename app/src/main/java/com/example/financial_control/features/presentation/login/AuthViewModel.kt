@@ -1,5 +1,6 @@
 package com.example.financial_control.features.presentation.login
 
+import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.financial_control.domain.error.FCError
@@ -34,12 +35,12 @@ class AuthViewModel @Inject constructor(
         true
     )
 
-    fun signIn() {
+    fun signIn(context: Context) {
         viewModelScope.launch {
             try {
                 _isLoading.value = true
                 _authError.value = null
-                authRepository.signIn()
+                authRepository.signIn(context)
             } catch (e: Exception) {
                 val error = FCError.fromApiString(e.message)
                 _authError.value = error.getMessageId()

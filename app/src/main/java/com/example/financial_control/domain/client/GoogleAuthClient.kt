@@ -14,15 +14,14 @@ import com.google.firebase.auth.GoogleAuthProvider
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
-class GoogleAuthClient @Inject constructor(
-    @ApplicationContext private val context: Context
-)  {
-    private val credentialManager = CredentialManager.create(context)
+class GoogleAuthClient {
+    private var credentialManager: CredentialManager? = null
 
     // TODO: Implementar em um env
     private val clientId = "539364929696-csjnh8cbuv639gu2f637kf1cl1bf55kt.apps.googleusercontent.com"
 
-    private suspend fun buildCredentialResponse(): GetCredentialResponse {
+    private suspend fun buildCredentialResponse(context: Context): GetCredentialResponse? {
+        credentialManager = CredentialManager.create(context)
         val googleIdOption = GetGoogleIdOption.Builder()
             .setFilterByAuthorizedAccounts(false)
             .setServerClientId(clientId)
@@ -32,18 +31,17 @@ class GoogleAuthClient @Inject constructor(
             .addCredentialOption(googleIdOption)
             .build()
 
-        return credentialManager.getCredential(context, request)
+        return credentialManager?.getCredential(context, request)
     }
 
-    private fun getGoogleIdTokenFromResult(response: GetCredentialResponse): String? {
-        return when (val credential = response.credential) {
+    private fun getGoogleIdTokenFromResult(response: GetCredentialResponse?): String? {
+        return when (val credential = response?.credential) {
             is GoogleIdTokenCredential -> credential.idToken
             is CustomCredential -> {
                 if (credential.type == GoogleIdTokenCredential.TYPE_GOOGLE_ID_TOKEN_CREDENTIAL) {
                     try {
                         GoogleIdTokenCredential.createFrom(credential.data).idToken
                     } catch (e: Exception) {
-                        Log.e("GoogleAuthClient", "Error parsing CustomCredential for Google ID Token", e)
                         null
                     }
                 } else {
@@ -54,13 +52,13 @@ class GoogleAuthClient @Inject constructor(
         }
     }
 
-    suspend fun getCredentialResponse(): AuthCredential {
-        val credentialResponse = buildCredentialResponse()
+    suspend fun getCredentialResponse(context: Context): AuthCredential {
+        val credentialResponse = buildCredentialResponse(context)
         val tokenId = getGoogleIdTokenFromResult(credentialResponse)
         return GoogleAuthProvider.getCredential(tokenId, null)
     }
 
     suspend fun clearCredentialState() {
-        credentialManager.clearCredentialState(ClearCredentialStateRequest())
+        credentialManager?.clearCredentialState(ClearCredentialStateRequest())
     }
 }

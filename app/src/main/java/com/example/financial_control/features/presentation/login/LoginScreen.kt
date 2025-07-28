@@ -14,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -26,6 +27,7 @@ import com.example.financial_control.ui.theme.DefaultDimensions
 
 @Composable
 fun LoginScreen() {
+    val context = LocalContext.current
     val viewModel: AuthViewModel = hiltViewModel()
     val isLoading by viewModel.isLoading.collectAsStateWithLifecycle()
     val error by viewModel.authError.collectAsStateWithLifecycle()
@@ -71,7 +73,7 @@ fun LoginScreen() {
                 onColor = MaterialTheme.colorScheme.onPrimary,
                 font = MaterialTheme.typography.bodyMedium,
                 isLoading = isLoading,
-                onClick = { viewModel.signIn() }
+                onClick = { viewModel.signIn(context) }
             )
         }
         error?.let {

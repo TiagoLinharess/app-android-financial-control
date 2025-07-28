@@ -1,5 +1,6 @@
 package com.example.financial_control.domain.repository
 
+import android.content.Context
 import com.example.financial_control.domain.client.GoogleAuthClient
 import com.example.financial_control.domain.models.UserModel
 import com.google.firebase.auth.FirebaseAuth
@@ -11,7 +12,7 @@ import javax.inject.Singleton
 
 interface AuthRepositoryInterface {
     val currentUser: StateFlow<UserModel?>
-    suspend fun signIn()
+    suspend fun signIn(context: Context)
     suspend fun signOut()
 }
 
@@ -40,8 +41,8 @@ class AuthRepository @Inject constructor(
         }
     }
 
-    override suspend fun signIn() {
-        val credential = googleAuthClient.getCredentialResponse()
+    override suspend fun signIn(context: Context) {
+        val credential = googleAuthClient.getCredentialResponse(context)
         firebaseAuth.signInWithCredential(credential).await()
     }
 
