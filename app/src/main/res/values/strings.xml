@@ -33,6 +33,10 @@
     <string name="login_description" translatable="true">Welcome to Financial Control!\nManage your expenses simply and securely.</string>
     <string name="login_button" translatable="true">sign in with your Google account</string>
 
+    // Login Loading
+
+    <string name="login_loading_title" translatable="true">Loading your information</string>
+
     // Modules
 
     <string name="module_home" translatable="true">Home</string>

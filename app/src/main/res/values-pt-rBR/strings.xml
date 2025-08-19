@@ -34,6 +34,10 @@
     <string name="login_description" translatable="true">Bem-vindo(a) ao Financial Control!\nGerencie suas despesas de forma simples e segura.</string>
     <string name="login_button" translatable="true">entrar com a sua conta Google</string>
 
+    // Login Loading
+
+    <string name="login_loading_title" translatable="true">Carregando suas informações</string>
+
     // Modules
 
     <string name="module_home" translatable="true">Início</string>

@@ -11,9 +11,11 @@ import androidx.navigation.compose.composable
 import com.example.financial_control.features.presentation.categories.CategoryListScreen
 import com.example.financial_control.features.presentation.home.HomeScreen
 import com.example.financial_control.features.presentation.login.LoginScreen
+import com.example.financial_control.features.presentation.login_loading.LoginLoadingScreen
 
 enum class AppScreen {
     LOGIN,
+    LOGIN_LOADING,
     HOME,
     CATEGORIES
 }
@@ -21,6 +23,7 @@ enum class AppScreen {
 sealed class NavigationItem(val route: String) {
     data object Home: NavigationItem(AppScreen.HOME.name)
     data object Login: NavigationItem(AppScreen.LOGIN.name)
+    data object LoginLoading: NavigationItem(AppScreen.LOGIN_LOADING.name)
     data object Categories: NavigationItem(AppScreen.CATEGORIES.name)
 }
 
@@ -33,10 +36,13 @@ fun AppNavHost(
 
     NavHost(
         navController = navController,
-        startDestination = if (showLogin) NavigationItem.Login.route else NavigationItem.Home.route
+        startDestination = NavigationItem.LoginLoading.route
     ) {
         composable(NavigationItem.Login.route) {
             LoginScreen()
+        }
+        composable(NavigationItem.LoginLoading.route) {
+            LoginLoadingScreen()
         }
         composable(NavigationItem.Home.route) {
             HomeScreen(navController = navController)
