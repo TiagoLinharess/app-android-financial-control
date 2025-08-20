@@ -41,7 +41,7 @@ fun StartScreen(
     val configuration = LocalConfiguration.current
     val screenHeightPx = with(density) { configuration.screenHeightDp.dp.toPx() }
     val imageSizePx = with(density) { DefaultDimensions.xxGiant.toPx() }
-    val exitTargetY = remember { -( (screenHeightPx / 2) + (imageSizePx / 2) + 50f ) }
+    val exitTargetY = remember { (screenHeightPx / 2) + (imageSizePx / 2) + 50f }
 
 
     LaunchedEffect(key1 = Unit) {
